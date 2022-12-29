@@ -1,0 +1,7 @@
+services:
+  server:
+    volumes:
+      - .:/workspaces:cached
+  client:
+    volumes:
+      - .:/workspaces:cached

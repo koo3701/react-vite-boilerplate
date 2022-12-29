@@ -1,0 +1,14 @@
+{
+  "name": "container server",
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "../.devcontainer/docker-compose.yml"
+  ],
+  "service": "server",
+  "workspaceFolder": "/server",
+  "extensions": ["denoland.vscode-deno"],
+  "settings": {
+    "deno.enable": true,
+    "deno.importMap": "./import_map.json"
+  }
+}
