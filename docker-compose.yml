@@ -1,0 +1,32 @@
+services:
+  client: # client用のコンテナ
+    build:
+      context: .
+      dockerfile: Dockerfile-client
+    container_name: client
+    tty: true
+    volumes:
+      - ./client:/client
+    working_dir: /client
+    ports:
+      - 3001:3000
+    networks:
+      - bridge
+
+  server: # server用のコンテナ
+    build:
+      context: .
+      dockerfile: Dockerfile-server
+    container_name: server
+    tty: true
+    volumes:
+      - ./server:/server
+    working_dir: /server
+    ports:
+      - 3002:3000
+    networks:
+      - bridge
+
+networks:
+  bridge:
+    driver: bridge
