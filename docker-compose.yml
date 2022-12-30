@@ -9,7 +9,7 @@ services:
       - ./client:/client
     working_dir: /client
     ports:
-      - 3001:3000
+      - 3000:3000
     networks:
       - bridge
 
@@ -22,8 +22,8 @@ services:
     volumes:
       - ./server:/server
     working_dir: /server
-    ports:
-      - 3002:3000
+    expose:
+      - 3000
     networks:
       - bridge
 

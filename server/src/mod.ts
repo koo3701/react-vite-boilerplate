@@ -9,4 +9,4 @@ router.get("/", (ctx) => {
 
 export const app = new Application();
 app.use(router.routes());
-app.listen({ port: 8000 });
+app.listen({ port: 3000 });

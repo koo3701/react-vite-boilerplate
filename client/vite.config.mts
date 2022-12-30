@@ -6,5 +6,12 @@ import 'npm:react-dom@^18.2.0/client'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()]
+  plugins: [react()],
+  server: {
+    host: '0.0.0.0',
+    port: 3000,
+    proxy: {
+      '/api': 'http://server:3000'
+    }
+  },
 })
