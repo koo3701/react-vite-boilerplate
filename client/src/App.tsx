@@ -1,9 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios';
 import reactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [message, setMessage] = useState<string>();
+
+  useEffect(() => {
+    (async () => {
+      const message = (await axios.get('/api')).data.message;
+      setMessage(message);
+    })();
+  }, []);
 
   return (
     <div className="App">
@@ -23,6 +32,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
+        <p>Server Response: {message ?? 'loading...'}</p>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
