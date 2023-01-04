@@ -1,17 +1,27 @@
 {
   "name": "container client",
-  "dockerComposeFile": [
-    "../docker-compose.yml",
-    "../.devcontainer/docker-compose.yml"
-  ],
+  "dockerComposeFile": ["../docker-compose.yml", "../.devcontainer/docker-compose.yml"],
   "service": "client",
   "workspaceFolder": "/client",
-  "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "csstools.postcss"
+  ],
   "settings": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
-    }
+    },
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.inlineSuggest.enabled": true,
+    "tailwindCSS.experimental.classRegex": [
+      "/\\* tw \\*/ '([^']+)'",
+      ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+    ]
   }
 }
