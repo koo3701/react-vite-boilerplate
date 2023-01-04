@@ -12,7 +12,13 @@ module.exports = {
     'plugin:tailwindcss/recommended',
     'prettier',
   ],
-  overrides: [],
+  overrides: [
+    {
+      files: ['*.stories.@(ts|tsx|js|jsx)'],
+      extends: ['plugin:storybook/recommended'],
+      rules: { 'import/no-default-export': 'off', 'import/no-extraneous-dependencies': 'off' },
+    },
+  ],
   parserOptions: {
     project: './tsconfig.json',
     ecmaVersion: 'latest',
@@ -37,13 +43,17 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'import/prefer-default-export': 'off',
-    'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: 'arrow-function',
+      },
+    ],
     'react/react-in-jsx-scope': 'off',
     'import/no-default-export': 'error',
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
     'no-nested-ternary': 'off',
-
     'import-access/jsdoc': [
       'error',
       {
