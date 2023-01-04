@@ -8,13 +8,15 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "NODE_OPTIONS='--openssl-legacy-provider' start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "generate": "yarn run hygen generator components"
   },
   "eslintIgnore": [
     "vite.config.ts",
     ".eslintrc.cjs",
     "tailwind.config.cjs",
-    "postcss.config.cjs"
+    "postcss.config.cjs",
+    "_templates/**/*.cjs"
   ],
   "dependencies": {
     "@tanstack/react-query": "^4.20.9",
@@ -57,6 +59,7 @@
     "eslint-plugin-storybook": "^0.6.8",
     "eslint-plugin-tailwindcss": "^3.8.0",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "hygen": "^6.2.11",
     "postcss": "^8.4.20",
     "prettier": "^2.8.1",
     "sass": "^1.57.1",
