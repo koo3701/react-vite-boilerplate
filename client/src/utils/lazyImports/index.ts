@@ -1,1 +1,1 @@
-export * from './lazyImports';
+export * from '@/utils/lazyImports/lazyImports';

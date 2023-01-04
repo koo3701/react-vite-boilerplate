@@ -1,6 +1,8 @@
-import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { Spinner } from '../components/Elements';
+
+import React from 'react';
+
+import { Spinner } from '@/components/Elements';
 
 export type AppProviderProps = {
   children: React.ReactNode;

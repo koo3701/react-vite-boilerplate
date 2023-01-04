@@ -1,6 +1,8 @@
 import clsx from 'clsx';
+
 import { Link as RouterLink } from 'react-router-dom';
-import { isExternalURL } from '../../../utils/isExternalUrl';
+
+import { isExternalURL } from '@/utils/isExternalUrl';
 
 export type LinkPropsType = {
   className?: string;

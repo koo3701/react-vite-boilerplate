@@ -1,1 +1,1 @@
-export * from './axios';
+export * from '@/lib/axios/axios';

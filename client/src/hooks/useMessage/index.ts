@@ -1,1 +1,1 @@
-export * from './useMessage';
+export * from '@/hooks/useMessage/useMessage';

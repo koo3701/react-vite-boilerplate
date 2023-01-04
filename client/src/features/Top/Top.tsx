@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import reactLogo from '../../assets/react.svg';
-import { Card, Icon, Link, Button } from '../../components/Elements';
-import { useMessage } from '../../hooks/useMessage';
+
+import reactLogo from '@/assets/react.svg';
+import { Card, Icon, Link, Button } from '@/components/Elements';
+import { useMessage } from '@/hooks/useMessage';
 
 export const Top = () => {
   const [count, setCount] = useState(0);

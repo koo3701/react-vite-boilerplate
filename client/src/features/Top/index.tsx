@@ -1,1 +1,1 @@
-export * from './Top';
+export * from '@/features/Top/Top';

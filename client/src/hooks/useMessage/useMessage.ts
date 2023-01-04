@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
-import { axios } from '../../lib/axios';
+
+import { axios } from '@/lib/axios';
 
 export const useMessage = () => {
   const [message, setMessage] = useState<string>();

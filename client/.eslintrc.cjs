@@ -18,7 +18,20 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint', 'tailwindcss'],
+  plugins: [
+    'react',
+    'react-hooks',
+    '@typescript-eslint',
+    'tailwindcss',
+    'unused-imports',
+    'import',
+    '@limegrass/import-alias',
+  ],
+  settings: {
+    'import/resolver': {
+      typescript: [],
+    },
+  },
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
@@ -28,5 +41,101 @@ module.exports = {
     'import/no-default-export': 'error',
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
+
+    'no-restricted-imports': [
+      'error',
+      {
+        paths: [
+          {
+            name: 'axios',
+            message: 'Use @lib/axios',
+          },
+        ],
+      },
+    ],
+    'unused-imports/no-unused-imports': 'error',
+    '@limegrass/import-alias/import-alias': 'error',
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          ['parent', 'sibling'],
+          'object',
+          'type',
+          'index',
+        ],
+        'newlines-between': 'always',
+        pathGroupsExcludedImportTypes: ['builtin'],
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+        pathGroups: [
+          {
+            pattern: 'react',
+            group: 'builtin',
+            position: 'before',
+          },
+          {
+            pattern: 'react-router-dom',
+            group: 'builtin',
+            position: 'before',
+          },
+          {
+            pattern: 'clsx',
+            group: 'builtin',
+            position: 'before',
+          },
+          {
+            pattern: '@/components',
+            group: 'internal',
+            position: 'before',
+          },
+          {
+            pattern: '@/features',
+            group: 'internal',
+            position: 'before',
+          },
+          {
+            pattern: '@/lib',
+            group: 'internal',
+            position: 'before',
+          },
+          {
+            pattern: '@/hooks',
+            group: 'internal',
+            position: 'before',
+          },
+          {
+            pattern: '@/stores',
+            group: 'internal',
+            position: 'before',
+          },
+          {
+            pattern: '@/routes',
+            group: 'internal',
+            position: 'before',
+          },
+          {
+            pattern: '@/providers',
+            group: 'internal',
+            position: 'before',
+          },
+          {
+            pattern: '@/utils',
+            group: 'internal',
+            position: 'before',
+          },
+          {
+            pattern: '@/config',
+            group: 'internal',
+            position: 'before',
+          },
+        ],
+      },
+    ],
   },
 };

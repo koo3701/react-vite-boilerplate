@@ -1,1 +1,1 @@
-export * from './isExternalUrl';
+export * from '@/utils/isExternalUrl/isExternalUrl';
