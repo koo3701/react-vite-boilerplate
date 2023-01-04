@@ -20,6 +20,7 @@
     "tailwindCSS.experimental.classRegex": [
       "/\\* tw \\*/ '([^']+)'",
       ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-    ]
+    ],
+    "typescript.tsdk": "./node_modules/typescript/lib"
   }
 }

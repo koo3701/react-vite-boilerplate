@@ -1,6 +1,7 @@
+import { AppProvider } from '@/providers/App';
+
 import { Routes } from '@/routes';
 
-import { AppProvider } from '@/providers/App';
 
 export const App = () => (
   <AppProvider>

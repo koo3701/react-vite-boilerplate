@@ -23,6 +23,7 @@ module.exports = {
     'react-hooks',
     '@typescript-eslint',
     'tailwindcss',
+    'import-access',
     'unused-imports',
     'import',
     '@limegrass/import-alias',
@@ -42,6 +43,13 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
 
+    'import-access/jsdoc': [
+      'error',
+      {
+        indexLoophole: true,
+        filenameLoophole: false,
+      },
+    ],
     'no-restricted-imports': [
       'error',
       {
@@ -90,47 +98,47 @@ module.exports = {
             position: 'before',
           },
           {
-            pattern: '@/components',
+            pattern: '@/components/**',
             group: 'internal',
             position: 'before',
           },
           {
-            pattern: '@/features',
+            pattern: '@/features/**',
             group: 'internal',
             position: 'before',
           },
           {
-            pattern: '@/lib',
+            pattern: '@/lib/**',
             group: 'internal',
             position: 'before',
           },
           {
-            pattern: '@/hooks',
+            pattern: '@/hooks/**',
             group: 'internal',
             position: 'before',
           },
           {
-            pattern: '@/stores',
+            pattern: '@/stores/**',
             group: 'internal',
             position: 'before',
           },
           {
-            pattern: '@/routes',
+            pattern: '@/routes/**',
             group: 'internal',
             position: 'before',
           },
           {
-            pattern: '@/providers',
+            pattern: '@/providers/**',
             group: 'internal',
             position: 'before',
           },
           {
-            pattern: '@/utils',
+            pattern: '@/utils/**',
             group: 'internal',
             position: 'before',
           },
           {
-            pattern: '@/config',
+            pattern: '@/config/**',
             group: 'internal',
             position: 'before',
           },

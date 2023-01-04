@@ -18,7 +18,12 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "eslint-plugin-import-access"
+      }
+    ]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
