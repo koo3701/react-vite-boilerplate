@@ -42,6 +42,7 @@ module.exports = {
     'import/no-default-export': 'error',
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'no-nested-ternary': 'off',
 
     'import-access/jsdoc': [
       'error',
@@ -85,17 +86,27 @@ module.exports = {
           {
             pattern: 'react',
             group: 'builtin',
-            position: 'before',
+            position: 'after',
           },
           {
             pattern: 'react-router-dom',
             group: 'builtin',
-            position: 'before',
+            position: 'after',
+          },
+          {
+            pattern: '@tanstack/react-query',
+            group: 'builtin',
+            position: 'after',
+          },
+          {
+            pattern: '@/lib/axios',
+            group: 'builtin',
+            position: 'after',
           },
           {
             pattern: 'clsx',
             group: 'builtin',
-            position: 'before',
+            position: 'after',
           },
           {
             pattern: '@/components/**',

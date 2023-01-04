@@ -1,9 +1,12 @@
+import React from 'react';
+
 import { BrowserRouter } from 'react-router-dom';
 
-import React from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { Spinner } from '@/components/Elements';
 
+const queryClient = new QueryClient();
 export type AppProviderProps = {
   children: React.ReactNode;
 };
@@ -15,6 +18,8 @@ export const AppProvider = ({ children }: AppProviderProps) => (
       </div>
     }
   >
-    <BrowserRouter>{children}</BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>{children}</BrowserRouter>
+    </QueryClientProvider>
   </React.Suspense>
 );

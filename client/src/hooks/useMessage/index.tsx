@@ -1,16 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
 import { axios } from '@/lib/axios';
 
 export const useMessage = () => {
-  const [message, setMessage] = useState<string>();
+  const { isLoading, error, data } = useQuery(['useMessage'], () =>
+    axios.get<{ message: string }>('/')
+  );
 
-  useEffect(() => {
-    (async () => {
-      const msg = (await axios.get<{ message: string }>('/api')).data.message;
-      setMessage(msg);
-    })().catch(() => {});
-  }, []);
-
-  return message;
+  return isLoading ? 'loading...' : error ? 'load error!' : data?.data.message ?? 'loading...';
 };
