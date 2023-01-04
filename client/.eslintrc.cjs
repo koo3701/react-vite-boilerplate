@@ -16,7 +16,12 @@ module.exports = {
     {
       files: ['*.stories.@(ts|tsx|js|jsx)'],
       extends: ['plugin:storybook/recommended'],
-      rules: { 'import/no-default-export': 'off', 'import/no-extraneous-dependencies': 'off' },
+      rules: {
+        'import/no-default-export': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'no-alert': 'off',
+        'no-console': 'off',
+      },
     },
   ],
   parserOptions: {
