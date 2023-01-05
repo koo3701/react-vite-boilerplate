@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 
 const sizes = {
-  sm: /* tw */ 'h-12 p-3',
+  sm: /* tw */ 'h-20 p-3',
   md: /* tw */ 'h-36 p-6',
-  lg: /* tw */ 'h-36 p-9',
+  lg: /* tw */ 'h-56 p-9',
 };
 
 export type IconPropsType = {

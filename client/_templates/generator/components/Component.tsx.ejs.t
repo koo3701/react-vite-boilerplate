@@ -1,5 +1,5 @@
 ---
-to: <%= dir %>/<%= componentName %>/index.tsx
+to: <%= dir.replace(/\/$/, '') %>/<%= componentName %>/index.tsx
 ---
 <% if (haveProps) { -%>
 export type <%= componentName %>PropsType = {

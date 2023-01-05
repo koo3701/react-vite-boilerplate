@@ -1,21 +1,21 @@
 import { ComponentStory, type ComponentMeta } from '@storybook/react';
 
-import { Button } from '@/components/Elements/Button';
+import { Card } from '@/components/Elements/Card';
 
-type T = typeof Button;
+type T = typeof Card;
 
 /**
  * @private
  */
 export default {
-  title: 'components/Elements/Button',
-  component: Button,
+  title: 'components/Elements/Card',
+  component: Card,
   args: {
-    children: 'Button',
+    children: 'Card',
   },
 } as ComponentMeta<T>;
 
-const Template: ComponentStory<T> = (args) => <Button {...args} />;
+const Template: ComponentStory<T> = (args) => <Card {...args} />;
 
 /**
  * @private
