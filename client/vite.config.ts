@@ -1,10 +1,13 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    // @ts-ignore
+    react(),
+  ],
   resolve: {
     alias: [{ find: '@', replacement: '/src' }],
   },
@@ -18,5 +21,10 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
+  },
+  test: {
+    globals: true,
+    environment: 'happy-dom',
+    setupFiles: './src/setup-test.ts',
   },
 });

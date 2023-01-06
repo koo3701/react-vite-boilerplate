@@ -2,8 +2,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 import clsx from 'clsx';
 
-
-import { isExternalURL } from '@/utils/isExternalUrl';
+import { isExternalUrl } from '@/utils/isExternalUrl';
 
 export type LinkPropsType = {
   className?: string;
@@ -18,7 +17,7 @@ export const Link = ({ href, newTab, className, children }: LinkPropsType) => {
     target: newTab ? '_blank' : undefined,
     rel: newTab ? 'noreferrer' : undefined,
   };
-  return isExternalURL(href) ? (
+  return isExternalUrl(href) ? (
     <a href={href} {...param}>
       {children}
     </a>
