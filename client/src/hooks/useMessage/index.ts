@@ -12,5 +12,5 @@ export const useMessage = () => {
     axios.get<MessageResponseType>('/')
   );
 
-  return isLoading ? 'loading...' : error ? 'load error!' : data?.data.message ?? 'loading...';
+  return isLoading ? 'loading...' : error ? 'load error!' : data?.data?.message ?? 'load error!';
 };

@@ -63,12 +63,31 @@ describe('hooks/useMessage', () => {
     await waitFor(() => expect(result.current).toBe(message));
   });
 
-  test('error', async () => {
+  test('loading', async () => {
     const message = 'loading...';
 
     const { axios } = await import('@/lib/axios');
 
     axios.get = vi.fn().mockReturnValueOnce(new Promise(() => {}));
+
+    const { result } = renderHook(() => useMessage(), {
+      wrapper,
+    });
+
+    expect(axios.get).toHaveBeenCalledWith('/');
+    expect(axios.get).toHaveBeenCalledTimes(1);
+
+    await waitFor(() => expect(result.current).toBe(message));
+  });
+
+  test('empty response', async () => {
+    const message = 'load error!';
+
+    const { axios } = await import('@/lib/axios');
+
+    axios.get = vi.fn().mockResolvedValueOnce({
+      data: undefined,
+    });
 
     const { result } = renderHook(() => useMessage(), {
       wrapper,
