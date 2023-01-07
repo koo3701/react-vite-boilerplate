@@ -1,19 +1,18 @@
+import { createMemoryRouter, RouterProvider } from 'react-router-dom';
+
 import { render, screen } from '@testing-library/react';
 
 import { Link } from '@/components/Elements/Link';
-import { Button } from '../Button';
-import { createMemoryRouter, RouterProvider } from 'react-router-dom';
-import { routes } from '@/routes/routes';
 
 describe('components/Elements/Link Common', () => {
-  test('Link using <a> tag', () => {
+  test('using <a> tag', () => {
     const router = createMemoryRouter([{ path: '/', element: <Link href="/to">Link Test</Link> }]);
 
     render(<RouterProvider router={router} />);
     expect(screen.getByRole('link')).toBeInTheDocument();
   });
 
-  test('Link Text', () => {
+  test('Text', () => {
     const randomText = (Math.random() + 1).toString(36).substring(7);
 
     const router = createMemoryRouter([
@@ -26,7 +25,7 @@ describe('components/Elements/Link Common', () => {
 });
 
 describe('components/Elements/Link Internal Url', () => {
-  test('Link Href Text', () => {
+  test('Href Text', () => {
     const randomText = `/${(Math.random() + 1).toString(36).substring(7)}`;
 
     const router = createMemoryRouter([
@@ -34,18 +33,18 @@ describe('components/Elements/Link Internal Url', () => {
     ]);
 
     render(<RouterProvider router={router} />);
-    expect(screen.getByRole('link').getAttribute('href')).toBe(randomText);
+    expect(screen.getByRole('link')).toHaveAttribute('href', randomText);
   });
 
-  test('Link newTab=false', () => {
+  test('newTab=false', () => {
     const router = createMemoryRouter([{ path: '/', element: <Link href="/to">Link Test</Link> }]);
 
     render(<RouterProvider router={router} />);
-    expect(screen.getByRole('link').getAttribute('target')).toBeNull();
-    expect(screen.getByRole('link').getAttribute('rel')).toBeNull();
+    expect(screen.getByRole('link')).not.toHaveAttribute('target');
+    expect(screen.getByRole('link')).not.toHaveAttribute('rel');
   });
 
-  test('Link newTab=true', () => {
+  test('newTab=true', () => {
     const router = createMemoryRouter([
       {
         path: '/',
@@ -58,13 +57,13 @@ describe('components/Elements/Link Internal Url', () => {
     ]);
 
     render(<RouterProvider router={router} />);
-    expect(screen.getByRole('link').getAttribute('target')).toBe('_blank');
-    expect(screen.getByRole('link').getAttribute('rel')).toBe('noreferrer');
+    expect(screen.getByRole('link')).toHaveAttribute('target', '_blank');
+    expect(screen.getByRole('link')).toHaveAttribute('rel', 'noreferrer');
   });
 });
 
 describe('components/Elements/Link External Url', () => {
-  test('Link Href Text', () => {
+  test('Href Text', () => {
     const randomText = `https://example.com/${(Math.random() + 1).toString(36).substring(7)}`;
 
     const router = createMemoryRouter([
@@ -72,20 +71,20 @@ describe('components/Elements/Link External Url', () => {
     ]);
 
     render(<RouterProvider router={router} />);
-    expect(screen.getByRole('link').getAttribute('href')).toBe(randomText);
+    expect(screen.getByRole('link')).toHaveAttribute('href', randomText);
   });
 
-  test('Link newTab=false', () => {
+  test('newTab=false', () => {
     const router = createMemoryRouter([
       { path: '/', element: <Link href="https://example.com/to">Link Test</Link> },
     ]);
 
     render(<RouterProvider router={router} />);
-    expect(screen.getByRole('link').getAttribute('target')).toBeNull();
-    expect(screen.getByRole('link').getAttribute('rel')).toBeNull();
+    expect(screen.getByRole('link')).not.toHaveAttribute('target');
+    expect(screen.getByRole('link')).not.toHaveAttribute('rel');
   });
 
-  test('Link newTab=true', () => {
+  test('newTab=true', () => {
     const router = createMemoryRouter([
       {
         path: '/',
@@ -98,7 +97,7 @@ describe('components/Elements/Link External Url', () => {
     ]);
 
     render(<RouterProvider router={router} />);
-    expect(screen.getByRole('link').getAttribute('target')).toBe('_blank');
-    expect(screen.getByRole('link').getAttribute('rel')).toBe('noreferrer');
+    expect(screen.getByRole('link')).toHaveAttribute('target', '_blank');
+    expect(screen.getByRole('link')).toHaveAttribute('rel', 'noreferrer');
   });
 });

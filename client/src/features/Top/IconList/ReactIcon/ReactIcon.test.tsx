@@ -5,28 +5,28 @@ import { ReactIcon } from '@/features/Top/IconList/ReactIcon';
 import reactLogo from '@/assets/react.svg';
 
 describe('features/Top/IconList/ReactIcon Link', () => {
-  test('ReactIcon href', () => {
+  test('href', () => {
     render(<ReactIcon />);
-    expect(screen.getByRole('link').getAttribute('href')).toBe('https://reactjs.org');
+    expect(screen.getByRole('link')).toHaveAttribute('href', 'https://reactjs.org');
   });
 
-  test('ReactIcon newTab', () => {
+  test('newTab', () => {
     render(<ReactIcon />);
-    expect(screen.getByRole('link').getAttribute('target')).toBe('_blank');
-    expect(screen.getByRole('link').getAttribute('rel')).toBe('noreferrer');
+    expect(screen.getByRole('link')).toHaveAttribute('target', '_blank');
+    expect(screen.getByRole('link')).toHaveAttribute('rel', 'noreferrer');
   });
 });
 
 describe('features/Top/IconList/ReactIcon Icon', () => {
   const altText = 'React logo';
 
-  test('ReactIcon alt', () => {
+  test('alt', () => {
     render(<ReactIcon />);
     expect(screen.getByAltText(altText)).toBeInTheDocument();
   });
 
-  test('ReactIcon src', () => {
+  test('src', () => {
     render(<ReactIcon />);
-    expect(screen.getByAltText(altText).getAttribute('src')).toBe(reactLogo);
+    expect(screen.getByAltText(altText)).toHaveAttribute('src', reactLogo);
   });
 });

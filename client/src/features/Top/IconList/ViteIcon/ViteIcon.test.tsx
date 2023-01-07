@@ -3,28 +3,28 @@ import { render, screen } from '@testing-library/react';
 import { ViteIcon } from '@/features/Top/IconList/ViteIcon';
 
 describe('features/Top/IconList/ViteIcon Link', () => {
-  test('ViteIcon href', () => {
+  test('href', () => {
     render(<ViteIcon />);
-    expect(screen.getByRole('link').getAttribute('href')).toBe('https://vitejs.dev');
+    expect(screen.getByRole('link')).toHaveAttribute('href', 'https://vitejs.dev');
   });
 
-  test('ViteIcon newTab', () => {
+  test('newTab', () => {
     render(<ViteIcon />);
-    expect(screen.getByRole('link').getAttribute('target')).toBe('_blank');
-    expect(screen.getByRole('link').getAttribute('rel')).toBe('noreferrer');
+    expect(screen.getByRole('link')).toHaveAttribute('target', '_blank');
+    expect(screen.getByRole('link')).toHaveAttribute('rel', 'noreferrer');
   });
 });
 
 describe('features/Top/IconList/ViteIcon Icon', () => {
   const altText = 'Vite logo';
 
-  test('ViteIcon alt', () => {
+  test('alt', () => {
     render(<ViteIcon />);
     expect(screen.getByAltText(altText)).toBeInTheDocument();
   });
 
-  test('ViteIcon src', () => {
+  test('src', () => {
     render(<ViteIcon />);
-    expect(screen.getByAltText(altText).getAttribute('src')).toBe('/vite.svg');
+    expect(screen.getByAltText(altText)).toHaveAttribute('src', '/vite.svg');
   });
 });

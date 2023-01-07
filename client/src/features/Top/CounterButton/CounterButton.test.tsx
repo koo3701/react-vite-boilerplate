@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react';
-
-import { CounterButton } from '@/features/Top/CounterButton';
 import userEvent from '@testing-library/user-event';
 
+import { CounterButton } from '@/features/Top/CounterButton';
+
 describe('features/Top/CounterButton', () => {
-  test('CounterButton Default Text', () => {
+  test('Default Text', () => {
     render(<CounterButton />);
     expect(screen.getByText('count is 0')).toBeInTheDocument();
   });
 
-  test('CounterButton onClick once', async () => {
+  test('onClick once', async () => {
     render(<CounterButton />);
 
     expect(screen.getByText('count is 0')).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe('features/Top/CounterButton', () => {
     expect(screen.getByText('count is 1')).toBeInTheDocument();
   });
 
-  test('CounterButton onClick 1~10 times', async () => {
+  test('onClick 1~10 times', async () => {
     const times = Math.floor(Math.random() * 10);
 
     render(<CounterButton />);
