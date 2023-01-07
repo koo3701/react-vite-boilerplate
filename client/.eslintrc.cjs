@@ -23,6 +23,10 @@ module.exports = {
         'no-console': 'off',
       },
     },
+    {
+      files: ['**/?(*.)+(spec|test).+(ts|tsx|js)'],
+      extends: ['plugin:jest-dom/recommended', 'plugin:testing-library/react'],
+    },
   ],
   parserOptions: {
     project: './tsconfig.json',
@@ -38,6 +42,8 @@ module.exports = {
     'unused-imports',
     'import',
     '@limegrass/import-alias',
+    'jest-dom',
+    'testing-library',
   ],
   settings: {
     'import/resolver': {
@@ -98,6 +104,11 @@ module.exports = {
           caseInsensitive: true,
         },
         pathGroups: [
+          {
+            pattern: '@testing-library*',
+            group: 'builtin',
+            position: 'before',
+          },
           {
             pattern: 'react',
             group: 'builtin',

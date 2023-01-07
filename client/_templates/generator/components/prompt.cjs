@@ -19,6 +19,12 @@ module.exports = [
   },
   {
     type: 'confirm',
+    name: 'needTests',
+    message: 'Do you need a Test?',
+    initial: true,
+  },
+  {
+    type: 'confirm',
     name: 'needStories',
     message: 'Do you need a Storybook?',
     initial: true,
