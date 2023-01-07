@@ -12,6 +12,7 @@ services:
       - 3000:3000
     networks:
       - bridge
+    command: sh -c "yarn && yarn dev"
 
   server: # server用のコンテナ
     build:
@@ -26,6 +27,7 @@ services:
       - 3000
     networks:
       - bridge
+    command: sh -c "deno task start"
 
 networks:
   bridge:
