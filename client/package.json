@@ -12,7 +12,8 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "generate:components": "hygen generator components",
-    "generate:functions": "hygen generator functions"
+    "generate:functions": "hygen generator functions",
+    "generate:hooks": "hygen generator hooks"
   },
   "eslintIgnore": [
     "vite.config.ts",

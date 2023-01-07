@@ -26,6 +26,9 @@ module.exports = {
     {
       files: ['**/?(*.)+(spec|test).+(ts|tsx|js)'],
       extends: ['plugin:jest-dom/recommended', 'plugin:testing-library/react'],
+      rules: {
+        '@typescript-eslint/unbound-method': 'off',
+      },
     },
   ],
   parserOptions: {
