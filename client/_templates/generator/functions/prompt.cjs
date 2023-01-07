@@ -3,7 +3,7 @@ module.exports = [
     type: 'input',
     name: 'dir',
     message: 'Where is the directory?',
-    validate: (ans) => ans.startsWith('src/'),
+    validate: (ans) => ans.startsWith('src/utils'),
   },
   {
     type: 'input',
