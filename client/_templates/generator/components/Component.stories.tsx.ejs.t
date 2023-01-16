@@ -13,10 +13,16 @@ type T = typeof <%= componentName %>;
 export default {
   title: '<%= dir.slice(4).replace(/\/$/, '') %>/<%= componentName %>',
   component: <%= componentName %>,
+<% if (haveChildren) { -%>
+  args: {
+    children: '<%= componentName %>',
+  },
+<% } else { -%>
   args: {},
+<% } -%>
 } as ComponentMeta<T>;
 
-const Template: ComponentStory<T> = (<%= haveProps ? 'args' : '' %>) => <<%= componentName %> <%= haveProps ? '{...args} ' : '' %>/>;
+const Template: ComponentStory<T> = (<%= haveProps || haveChildren ? 'args' : '' %>) => <<%= componentName %> <%= haveProps || haveChildren ? '{...args} ' : '' %>/>;
 
 /**
  * @private

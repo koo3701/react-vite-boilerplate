@@ -7,7 +7,11 @@ import { <%= componentName %> } from '@<%= dir.slice(3).replace(/\/$/, '') %>/<%
 
 describe('<%= dir.slice(4).replace(/\/$/, '') %>/<%= componentName %>', () => {
   test('Text', () => {
-    render(<<%= componentName %> />);
-    expect(screen.getByText('<%= componentName %>')).toBeInTheDocument();
+<% if (haveChildren) { -%>
+    const randomText = (Math.random() + 1).toString(36).substring(7);
+
+<% } -%>
+    render(<%- haveChildren ? `<${componentName}>{ randomText }</${componentName}>` : `<${componentName} />` %>);
+    expect(screen.getByText(<%- haveChildren ? 'randomText' : `'${componentName}'` %>)).toBeInTheDocument();
   });
 });

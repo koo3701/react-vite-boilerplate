@@ -19,6 +19,18 @@ module.exports = [
   },
   {
     type: 'confirm',
+    name: 'haveChildren',
+    message: 'Is it have children?',
+    initial: false,
+  },
+  {
+    type: 'confirm',
+    name: 'isPackage',
+    message: 'Is it a package?',
+    initial: false,
+  },
+  {
+    type: 'confirm',
     name: 'needTests',
     message: 'Do you need a Test?',
     initial: true,
