@@ -28,6 +28,7 @@ module.exports = {
       extends: ['plugin:jest-dom/recommended', 'plugin:testing-library/react'],
       rules: {
         '@typescript-eslint/unbound-method': 'off',
+        'max-classes-per-file': 'off',
       },
     },
   ],
@@ -84,6 +85,12 @@ module.exports = {
             message: 'Use @lib/axios',
           },
         ],
+      },
+    ],
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        assert: 'nesting',
       },
     ],
     'unused-imports/no-unused-imports': 'error',
@@ -183,6 +190,12 @@ module.exports = {
             position: 'before',
           },
         ],
+      },
+    ],
+    'tailwindcss/no-custom-classname': [
+      'error',
+      {
+        config: 'tailwind.config.cjs',
       },
     ],
   },
