@@ -5,12 +5,17 @@
     "../.devcontainer/docker-compose.yml"
   ],
   "service": "server",
-  "workspaceFolder": "/server",
-  "extensions": ["denoland.vscode-deno"],
-  "settings": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "denoland.vscode-deno",
-    "deno.enable": true,
-    "deno.importMap": "./import_map.json"
+  "workspaceFolder": "/workspace/server",
+  "customizations": {
+    "vscode": {
+      "extensions": ["denoland.vscode-deno"],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "denoland.vscode-deno",
+        "deno.enable": true,
+        "deno.importMap": "./import_map.json",
+        "git.openRepositoryInParentFolders": "always"
+      }
+    }
   }
 }

@@ -6,8 +6,8 @@ services:
     container_name: client
     tty: true
     volumes:
-      - ./client:/client
-    working_dir: /client
+      - .:/workspace
+    working_dir: /workspace/client
     ports:
       - 3000:3000
     networks:
@@ -21,8 +21,8 @@ services:
     container_name: server
     tty: true
     volumes:
-      - ./server:/server
-    working_dir: /server
+      - .:/workspace
+    working_dir: /workspace/server
     expose:
       - 3000
     networks:
