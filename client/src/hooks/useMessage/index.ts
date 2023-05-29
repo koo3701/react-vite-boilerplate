@@ -8,9 +8,9 @@ import { axios } from '@/lib/axios';
 export type MessageResponseType = { message: string };
 
 export const useMessage = () => {
-  const { isLoading, error, data } = useQuery(['useMessage'], () =>
-    axios.get<MessageResponseType>('/')
-  );
+  const { data } = useQuery(['useMessage'], () => axios.get<MessageResponseType>('/'), {
+    retry: false,
+  });
 
-  return isLoading ? 'loading...' : error ? 'load error!' : data?.data?.message ?? 'load error!';
+  return data?.data.message;
 };

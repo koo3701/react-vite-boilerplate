@@ -1,9 +1,9 @@
 ---
 to: "<%= needStories ? `${dir.replace(/\\/$/, '')}/${componentName}/${componentName}.stories.tsx` : null %>"
 ---
-import type { StoryObj, Meta } from '@storybook/react';
-
 import { <%= componentName %> } from '@<%= dir.slice(3).replace(/\/$/, '') %>/<%= componentName %>';
+
+import type { StoryObj, Meta } from '@storybook/react';
 
 type T = typeof <%= componentName %>;
 type Story = StoryObj<T>;
