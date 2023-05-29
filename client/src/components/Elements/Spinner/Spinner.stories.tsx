@@ -1,61 +1,64 @@
-import { ComponentStory, type ComponentMeta } from '@storybook/react';
-
 import { Spinner } from '@/components/Elements/Spinner';
 
+import type { Meta, StoryObj } from '@storybook/react';
+
 type T = typeof Spinner;
+type Story = StoryObj<T>;
 
 /**
  * @private
  */
 export default {
-  title: 'components/Elements/Spinner',
   component: Spinner,
   args: {},
-} as ComponentMeta<T>;
-
-const Template: ComponentStory<T> = (args) => <Spinner {...args} />;
+} satisfies Meta<T>;
 
 /**
  * @private
  */
-export const Small = Template.bind({});
-Small.args = {
-  size: 'sm',
-  variant: 'primary',
+export const Small: Story = {
+  args: {
+    size: 'sm',
+    variant: 'primary',
+  },
 };
 
 /**
  * @private
  */
-export const Medium = Template.bind({});
-Medium.args = {
-  size: 'md',
-  variant: 'primary',
+export const Medium: Story = {
+  args: {
+    size: 'md',
+    variant: 'primary',
+  },
 };
 
 /**
  * @private
  */
-export const Large = Template.bind({});
-Large.args = {
-  size: 'lg',
-  variant: 'primary',
+export const Large: Story = {
+  args: {
+    size: 'lg',
+    variant: 'primary',
+  },
 };
 
 /**
  * @private
  */
-export const ExtraLarge = Template.bind({});
-ExtraLarge.args = {
-  size: 'xl',
-  variant: 'primary',
+export const ExtraLarge: Story = {
+  args: {
+    size: 'xl',
+    variant: 'primary',
+  },
 };
 
 /**
  * @private
  */
-export const Light = Template.bind({});
-Light.args = {
-  size: 'md',
-  variant: 'light',
+export const Light: Story = {
+  args: {
+    size: 'md',
+    variant: 'light',
+  },
 };

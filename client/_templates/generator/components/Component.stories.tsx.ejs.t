@@ -1,17 +1,17 @@
 ---
 to: "<%= needStories ? `${dir.replace(/\\/$/, '')}/${componentName}/${componentName}.stories.tsx` : null %>"
 ---
-import { ComponentStory, type ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { <%= componentName %> } from '@<%= dir.slice(3).replace(/\/$/, '') %>/<%= componentName %>';
 
 type T = typeof <%= componentName %>;
+type Story = StoryObj<T>;
 
 /**
  * @private
  */
 export default {
-  title: '<%= dir.slice(4).replace(/\/$/, '') %>/<%= componentName %>',
   component: <%= componentName %>,
 <% if (haveChildren) { -%>
   args: {
@@ -20,12 +20,9 @@ export default {
 <% } else { -%>
   args: {},
 <% } -%>
-} as ComponentMeta<T>;
-
-const Template: ComponentStory<T> = (<%= haveProps || haveChildren ? 'args' : '' %>) => <<%= componentName %> <%= haveProps || haveChildren ? '{...args} ' : '' %>/>;
+} satisfies Meta<T>;
 
 /**
  * @private
  */
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: Story = {};

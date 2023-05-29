@@ -1,24 +1,21 @@
-import { ComponentStory, type ComponentMeta } from '@storybook/react';
-
 import { Button } from '@/components/Elements/Button';
 
+import type { StoryObj, Meta } from '@storybook/react';
+
 type T = typeof Button;
+type Story = StoryObj<T>;
 
 /**
  * @private
  */
 export default {
-  title: 'components/Elements/Button',
   component: Button,
   args: {
     children: 'Button',
   },
-} as ComponentMeta<T>;
-
-const Template: ComponentStory<T> = (args) => <Button {...args} />;
+} satisfies Meta<T>;
 
 /**
  * @private
  */
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: Story = {};

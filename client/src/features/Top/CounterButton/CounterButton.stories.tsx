@@ -1,22 +1,19 @@
-import { ComponentStory, type ComponentMeta } from '@storybook/react';
-
 import { CounterButton } from '@/features/Top/CounterButton';
 
+import type { Meta, StoryObj } from '@storybook/react';
+
 type T = typeof CounterButton;
+type Story = StoryObj<T>;
 
 /**
  * @private
  */
 export default {
-  title: 'features/Top/CounterButton',
   component: CounterButton,
   args: {},
-} as ComponentMeta<T>;
-
-const Template: ComponentStory<T> = () => <CounterButton />;
+} satisfies Meta<T>;
 
 /**
  * @private
  */
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: Story = {};

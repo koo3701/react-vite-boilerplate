@@ -1,22 +1,19 @@
-import { ComponentStory, type ComponentMeta } from '@storybook/react';
-
 import { ViteIcon } from '@/features/Top/IconList/ViteIcon';
 
+import type { StoryObj, Meta } from '@storybook/react';
+
 type T = typeof ViteIcon;
+type Story = StoryObj<T>;
 
 /**
  * @private
  */
 export default {
-  title: 'features/Top/IconList/ViteIcon',
   component: ViteIcon,
   args: {},
-} as ComponentMeta<T>;
-
-const Template: ComponentStory<T> = () => <ViteIcon />;
+} satisfies Meta<T>;
 
 /**
  * @private
  */
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: Story = {};

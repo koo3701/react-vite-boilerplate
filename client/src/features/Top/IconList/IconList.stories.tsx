@@ -1,22 +1,19 @@
-import { ComponentStory, type ComponentMeta } from '@storybook/react';
-
 import { IconList } from '@/features/Top/IconList';
 
+import type { StoryObj, Meta } from '@storybook/react';
+
 type T = typeof IconList;
+type Story = StoryObj<T>;
 
 /**
  * @private
  */
 export default {
-  title: 'features/Top/IconList',
   component: IconList,
   args: {},
-} as ComponentMeta<T>;
-
-const Template: ComponentStory<T> = () => <IconList />;
+} satisfies Meta<T>;
 
 /**
  * @private
  */
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: Story = {};
