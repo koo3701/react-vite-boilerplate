@@ -12,5 +12,5 @@ export const useMessage = () => {
     retry: false,
   });
 
-  return data?.data.message;
+  return data?.data?.message;
 };

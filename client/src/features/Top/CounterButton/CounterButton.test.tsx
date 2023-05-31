@@ -26,7 +26,9 @@ describe('features/Top/CounterButton', () => {
 
     expect(screen.getByText('count is 0')).toBeInTheDocument();
 
-    await Promise.all([...new Array(times)].map(() => userEvent.click(screen.getByRole('button'))));
+    await Promise.all(
+      [...new Array<unknown>(times)].map(() => userEvent.click(screen.getByRole('button')))
+    );
 
     expect(screen.getByText(`count is ${times}`)).toBeInTheDocument();
   });

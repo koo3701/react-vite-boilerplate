@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    "vitest-globals/env": true
   },
   extends: [
     'plugin:react/recommended',
@@ -10,6 +11,8 @@ module.exports = {
     'airbnb',
     'airbnb-typescript',
     'plugin:tailwindcss/recommended',
+    'plugin:vitest/recommended',
+    'plugin:vitest-globals/recommended',
     'prettier',
   ],
   overrides: [
@@ -48,6 +51,7 @@ module.exports = {
     '@limegrass/import-alias',
     'jest-dom',
     'testing-library',
+    'vitest'
   ],
   settings: {
     'import/resolver': {

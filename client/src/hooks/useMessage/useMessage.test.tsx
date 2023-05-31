@@ -1,15 +1,18 @@
+import { Suspense } from 'react';
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import { cleanup, renderHook, waitFor } from '@testing-library/react';
-import { expect, test } from 'vitest';
+import { axios } from '@/lib/axios';
+
+import { cleanup, renderHook, waitFor, render, screen } from '@testing-library/react';
+import { ErrorBoundary } from 'react-error-boundary';
 
 import { MessageResponseType, useMessage } from '@/hooks/useMessage';
-
-vi.mock('@/lib/axios');
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
+      suspense: true,
       retry: false,
     },
   },
@@ -28,9 +31,7 @@ describe('hooks/useMessage', () => {
   test('success', async () => {
     const message = 'Hello World!';
 
-    const { axios } = await import('@/lib/axios');
-
-    axios.get = vi.fn().mockResolvedValueOnce({
+    const getSpy = vi.spyOn(axios, 'get').mockResolvedValueOnce({
       data: {
         message,
       } satisfies MessageResponseType,
@@ -40,52 +41,58 @@ describe('hooks/useMessage', () => {
       wrapper,
     });
 
-    expect(axios.get).toHaveBeenCalledWith('/');
-    expect(axios.get).toHaveBeenCalledTimes(1);
+    expect(getSpy).toHaveBeenCalledWith('/');
+    expect(getSpy).toHaveBeenCalledTimes(1);
 
     await waitFor(() => expect(result.current).toBe(message));
   });
 
   test('error', async () => {
-    const message = 'load error!';
+    const getSpy = vi.spyOn(axios, 'get').mockRejectedValueOnce({});
 
-    const { axios } = await import('@/lib/axios');
+    const Container = () => {
+      const message = useMessage();
 
-    axios.get = vi.fn().mockRejectedValueOnce({});
+      return <div>{message}</div>;
+    };
 
-    const { result } = renderHook(() => useMessage(), {
-      wrapper,
-    });
+    render(
+      <ErrorBoundary fallback={<div>error</div>}>
+        <Container />
+      </ErrorBoundary>,
+      { wrapper }
+    );
 
-    expect(axios.get).toHaveBeenCalledWith('/');
-    expect(axios.get).toHaveBeenCalledTimes(1);
+    expect(getSpy).toHaveBeenCalledWith('/');
+    expect(getSpy).toHaveBeenCalledTimes(1);
 
-    await waitFor(() => expect(result.current).toBe(message));
+    await screen.findByText('error');
   });
 
   test('loading', async () => {
-    const message = 'loading...';
+    const getSpy = vi.spyOn(axios, 'get').mockReturnValueOnce(new Promise(() => {}));
 
-    const { axios } = await import('@/lib/axios');
+    const Container = () => {
+      const message = useMessage();
 
-    axios.get = vi.fn().mockReturnValueOnce(new Promise(() => {}));
+      return <div>{message}</div>;
+    };
 
-    const { result } = renderHook(() => useMessage(), {
-      wrapper,
-    });
+    render(
+      <Suspense fallback="loading">
+        <Container />
+      </Suspense>,
+      { wrapper }
+    );
 
-    expect(axios.get).toHaveBeenCalledWith('/');
-    expect(axios.get).toHaveBeenCalledTimes(1);
+    expect(getSpy).toHaveBeenCalledWith('/');
+    expect(getSpy).toHaveBeenCalledTimes(1);
 
-    await waitFor(() => expect(result.current).toBe(message));
+    await screen.findByText('loading');
   });
 
   test('empty response', async () => {
-    const message = 'load error!';
-
-    const { axios } = await import('@/lib/axios');
-
-    axios.get = vi.fn().mockResolvedValueOnce({
+    const getSpy = vi.spyOn(axios, 'get').mockResolvedValueOnce({
       data: undefined,
     });
 
@@ -93,9 +100,9 @@ describe('hooks/useMessage', () => {
       wrapper,
     });
 
-    expect(axios.get).toHaveBeenCalledWith('/');
-    expect(axios.get).toHaveBeenCalledTimes(1);
+    expect(getSpy).toHaveBeenCalledWith('/');
+    expect(getSpy).toHaveBeenCalledTimes(1);
 
-    await waitFor(() => expect(result.current).toBe(message));
+    await waitFor(() => expect(result.current).toBeUndefined());
   });
 });
