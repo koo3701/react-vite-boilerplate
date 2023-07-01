@@ -12,7 +12,7 @@ services:
       - 3000:3000
     networks:
       - bridge
-    command: sh -c "yarn && yarn dev"
+    command: sh -c "pnpm i && pnpm dev"
 
   server: # server用のコンテナ
     build:

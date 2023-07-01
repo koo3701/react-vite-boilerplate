@@ -14,7 +14,7 @@ React+Vite Boilerplate
 ### Show Page
 
 ```sh
-docker-compose up -d
+docker compose up -d
 ```
 
 ### Development
