@@ -1,8 +1,12 @@
 import { Link as RouterLink } from 'react-router-dom';
 
-import clsx from 'clsx';
+import { tv } from 'tailwind-variants';
 
 import { isExternalUrl } from '@/utils/isExternalUrl';
+
+const link = tv({
+  base: ['font-medium text-indigo-500', 'hover:text-indigo-400'],
+});
 
 export type LinkPropsType = {
   className?: string;
@@ -12,7 +16,7 @@ export type LinkPropsType = {
 };
 export const Link = ({ href, newTab, className, children }: LinkPropsType) => {
   const param = {
-    className: clsx('font-medium text-indigo-500 hover:text-indigo-400', className),
+    className: link({ className }),
 
     target: newTab ? '_blank' : undefined,
     rel: newTab ? 'noreferrer' : undefined,

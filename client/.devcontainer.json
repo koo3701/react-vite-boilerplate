@@ -22,7 +22,8 @@
         "editor.inlineSuggest.enabled": true,
         "tailwindCSS.experimental.classRegex": [
           "/\\* tw \\*/ '([^']+)'",
-          ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+          ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+          ["tv\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
         ],
         "typescript.tsdk": "./node_modules/typescript/lib",
         "git.openRepositoryInParentFolders": "always"

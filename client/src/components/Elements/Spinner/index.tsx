@@ -1,27 +1,31 @@
-import clsx from 'clsx';
+import { tv } from 'tailwind-variants';
 
-const sizes = {
-  sm: 'h-4 w-4',
-  md: 'h-8 w-8',
-  lg: 'h-16 w-16',
-  xl: 'h-24 w-24',
-};
-
-const variants = {
-  light: 'text-white',
-  primary: 'text-blue-600',
-};
+const spinner = tv({
+  base: 'animate-spin',
+  variants: {
+    size: {
+      sm: 'h-4 w-4',
+      md: 'h-8 w-8',
+      lg: 'h-16 w-16',
+      xl: 'h-24 w-24',
+    },
+    color: {
+      light: 'text-white',
+      primary: 'text-blue-600',
+    },
+  },
+});
 
 export type SpinnerPropsType = {
   className?: string;
-  size?: keyof typeof sizes;
-  variant?: keyof typeof variants;
+  size?: keyof typeof spinner.variants.size;
+  color?: keyof typeof spinner.variants.color;
 };
 
-export const Spinner = ({ className, size = 'md', variant = 'primary' }: SpinnerPropsType) => (
+export const Spinner = ({ className, size = 'md', color = 'primary' }: SpinnerPropsType) => (
   <>
     <svg
-      className={clsx('animate-spin', sizes[size], variants[variant], className)}
+      className={spinner({ className, size, color })}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

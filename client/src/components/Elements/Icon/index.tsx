@@ -1,17 +1,22 @@
-import clsx from 'clsx';
+import { tv } from 'tailwind-variants';
 
-const sizes = {
-  sm: /* tw */ 'h-20 p-3',
-  md: /* tw */ 'h-36 p-6',
-  lg: /* tw */ 'h-56 p-9',
-};
+const icon = tv({
+  base: 'will-change-[filter]',
+  variants: {
+    size: {
+      sm: 'h-20 p-3',
+      md: 'h-36 p-6',
+      lg: 'h-56 p-9',
+    },
+  },
+});
 
 export type IconPropsType = {
   className?: string;
   src: string;
   alt: string;
-  size: keyof typeof sizes;
+  size: keyof (typeof icon.variants)['size'];
 };
 export const Icon = ({ src, alt, size, className }: IconPropsType) => (
-  <img src={src} className={clsx(sizes[size], 'will-change-[filter]', className)} alt={alt} />
+  <img src={src} className={icon({ className, size })} alt={alt} />
 );

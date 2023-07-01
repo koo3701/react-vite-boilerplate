@@ -144,6 +144,11 @@ module.exports = {
             position: 'after',
           },
           {
+            pattern: 'tailwind-variants',
+            group: 'builtin',
+            position: 'after',
+          },
+          {
             pattern: 'clsx',
             group: 'builtin',
             position: 'after',

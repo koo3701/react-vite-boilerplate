@@ -19,7 +19,7 @@ export default {
 export const Small: Story = {
   args: {
     size: 'sm',
-    variant: 'primary',
+    color: 'primary',
   },
 };
 
@@ -29,7 +29,7 @@ export const Small: Story = {
 export const Medium: Story = {
   args: {
     size: 'md',
-    variant: 'primary',
+    color: 'primary',
   },
 };
 
@@ -39,7 +39,7 @@ export const Medium: Story = {
 export const Large: Story = {
   args: {
     size: 'lg',
-    variant: 'primary',
+    color: 'primary',
   },
 };
 
@@ -49,7 +49,7 @@ export const Large: Story = {
 export const ExtraLarge: Story = {
   args: {
     size: 'xl',
-    variant: 'primary',
+    color: 'primary',
   },
 };
 
@@ -59,6 +59,6 @@ export const ExtraLarge: Story = {
 export const Light: Story = {
   args: {
     size: 'md',
-    variant: 'light',
+    color: 'light',
   },
 };
