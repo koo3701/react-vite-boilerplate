@@ -71,17 +71,17 @@ yarn storybook
 - Component
 
 ```sh
-yarn generate:components
+yarn generate:component
 ```
 
 - Hooks
 
 ```sh
-yarn generate:hooks
+yarn generate:hook
 ```
 
 - Utility Function
 
 ```sh
-yarn generate:functions
+yarn generate:function
 ```
