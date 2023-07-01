@@ -7,9 +7,9 @@ export default {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     {
-      name: '@storybook/addon-postcss',
+      name: '@storybook/addon-styling',
       options: {
-        postcssLoaderOptions: {
+        postCss: {
           implementation: require('postcss'),
         },
       },
